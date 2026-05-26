@@ -19,7 +19,7 @@ import {
   Cpu,
 } from 'lucide-react';
 
-// ─── Hero canvas: glass-shard cursor trail + ripple rings ─────────────────────
+// ─── Neural web pulse cursor canvas ──────────────────────────────────────────
 const HeroCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -27,149 +27,190 @@ const HeroCanvas: React.FC = () => {
     const canvas = canvasRef.current;
     const container = canvas?.parentElement as HTMLElement | null;
     if (!canvas || !container) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    const ctx = canvas.getContext('2d')!;
 
     let raf: number;
-    let mx = -999, my = -999, lx = -999, ly = -999;
+    let mx = -999, my = -999;
+    let cx = -999, cy = -999;
+    let frame = 0;
+    let lastPulseTime = 0;
 
-    const resize = () => {
+    interface Node {
+      x: number; y: number;
+      vx: number; vy: number;
+      r: number;
+      baseAlpha: number;
+      charge: number;
+      phase: number;
+    }
+    interface PulseRing {
+      x: number; y: number;
+      radius: number;
+      maxRadius: number;
+      alpha: number;
+    }
+    const arcMap = new Map<string, { dx: number; dy: number }[]>();
+
+    let nodes: Node[] = [];
+    let pulses: PulseRing[] = [];
+
+    const CONNECT_R = 145;
+    const CHARGE_R  = 195;
+    const ARC_SEGS  = 4;
+    const ARC_DEV   = 14;
+
+    const init = () => {
       canvas.width  = container.offsetWidth;
       canvas.height = container.offsetHeight;
+      const density = Math.floor((canvas.width * canvas.height) / 10500);
+      const count   = Math.max(45, Math.min(density, 85));
+      nodes = Array.from({ length: count }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.28,
+        vy: (Math.random() - 0.5) * 0.28,
+        r: 1.5 + Math.random() * 2,
+        baseAlpha: 0.12 + Math.random() * 0.22,
+        charge: 0,
+        phase: Math.random() * Math.PI * 2,
+      }));
+      arcMap.clear();
     };
-    resize();
-    const ro = new ResizeObserver(resize);
+
+    init();
+    const ro = new ResizeObserver(init);
     ro.observe(container);
 
-    // ── Types ──
-    interface Shard {
-      x: number; y: number; vx: number; vy: number;
-      size: number; alpha: number; rot: number; rotV: number;
-      sides: number; color: string;
-    }
-    interface Ripple { x: number; y: number; r: number; maxR: number; alpha: number; }
-
-    const shards: Shard[] = [];
-    const ripples: Ripple[] = [];
-    const palette = ['rgba(129,140,248,', 'rgba(255,255,255,', 'rgba(196,181,253,', 'rgba(245,158,11,'];
-
-    const spawnShard = (x: number, y: number, dx: number, dy: number) => {
-      if (shards.length > 90) return;
-      const angle = Math.atan2(dy, dx) + (Math.random() - 0.5) * 2.4;
-      const spd   = 1.5 + Math.random() * 3.5;
-      shards.push({
-        x: x + (Math.random() - 0.5) * 8,
-        y: y + (Math.random() - 0.5) * 8,
-        vx: Math.cos(angle) * spd,
-        vy: Math.sin(angle) * spd,
-        size:  2.5 + Math.random() * 5,
-        alpha: 0.55 + Math.random() * 0.45,
-        rot:   Math.random() * Math.PI * 2,
-        rotV:  (Math.random() - 0.5) * 0.14,
-        sides: 3 + Math.floor(Math.random() * 3),
-        color: palette[Math.floor(Math.random() * palette.length)],
-      });
-    };
-
-    const drawPoly = (cx: number, cy: number, sides: number, r: number) => {
-      ctx.beginPath();
-      for (let i = 0; i < sides; i++) {
-        const a = (i / sides) * Math.PI * 2 - Math.PI / 2;
-        i === 0 ? ctx.moveTo(cx + Math.cos(a) * r, cy + Math.sin(a) * r)
-                : ctx.lineTo(cx + Math.cos(a) * r, cy + Math.sin(a) * r);
-      }
-      ctx.closePath();
-    };
-
     const onMove = (e: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
-      mx = e.clientX - rect.left;
-      my = e.clientY - rect.top;
-      const dx = mx - lx, dy = my - ly;
-      const spd = Math.sqrt(dx * dx + dy * dy);
-      if (spd > 5) {
-        const n = Math.min(Math.floor(spd / 7) + 1, 4);
-        for (let i = 0; i < n; i++) spawnShard(mx, my, dx, dy);
-        if (Math.random() < 0.18)
-          ripples.push({ x: mx, y: my, r: 4, maxR: 55 + Math.random() * 70, alpha: 0.38 });
+      const r = container.getBoundingClientRect();
+      mx = e.clientX - r.left;
+      my = e.clientY - r.top;
+      if (cx < -900) { cx = mx; cy = my; }
+      const now = performance.now();
+      if (now - lastPulseTime > 480) {
+        pulses.push({ x: cx, y: cy, radius: 4, maxRadius: 110, alpha: 0.55 });
+        lastPulseTime = now;
       }
-      lx = mx; ly = my;
     };
     const onLeave = () => { mx = -999; my = -999; };
-
     container.addEventListener('mousemove', onMove);
     container.addEventListener('mouseleave', onLeave);
 
+    const getArc = (key: string): { dx: number; dy: number }[] => {
+      if (!arcMap.has(key)) {
+        arcMap.set(key, Array.from({ length: ARC_SEGS }, () => ({
+          dx: (Math.random() - 0.5) * ARC_DEV,
+          dy: (Math.random() - 0.5) * ARC_DEV,
+        })));
+      }
+      return arcMap.get(key)!;
+    };
+
     const tick = () => {
+      raf = requestAnimationFrame(tick);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      frame++;
 
-      // ── Cursor glow + ring ──
-      if (mx > -900) {
-        const g = ctx.createRadialGradient(mx, my, 0, mx, my, 110);
-        g.addColorStop(0,   'rgba(79,70,229,0.20)');
-        g.addColorStop(0.5, 'rgba(79,70,229,0.07)');
-        g.addColorStop(1,   'rgba(79,70,229,0)');
-        ctx.fillStyle = g;
-        ctx.beginPath(); ctx.arc(mx, my, 110, 0, Math.PI * 2); ctx.fill();
-
-        ctx.strokeStyle = 'rgba(255,255,255,0.18)';
-        ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.arc(mx, my, 20, 0, Math.PI * 2); ctx.stroke();
-
-        ctx.fillStyle = 'rgba(255,255,255,0.55)';
-        ctx.beginPath(); ctx.arc(mx, my, 2.5, 0, Math.PI * 2); ctx.fill();
+      const active = mx > -900;
+      if (active) {
+        cx += (mx - cx) * 0.10;
+        cy += (my - cy) * 0.10;
       }
 
-      // ── Ripple rings (segmented = cracked glass look) ──
-      for (let i = ripples.length - 1; i >= 0; i--) {
-        const rp = ripples[i];
-        rp.r += 2.8; rp.alpha *= 0.945;
-        if (rp.alpha < 0.01 || rp.r > rp.maxR) { ripples.splice(i, 1); continue; }
-        const segs = 10;
-        ctx.lineWidth = 0.9;
-        for (let s = 0; s < segs; s++) {
-          const a0 = (s / segs) * Math.PI * 2;
-          const a1 = ((s + 0.65) / segs) * Math.PI * 2;
-          ctx.strokeStyle = `rgba(255,255,255,${rp.alpha})`;
-          ctx.beginPath(); ctx.arc(rp.x, rp.y, rp.r, a0, a1); ctx.stroke();
-        }
-        // crack lines radiating out
-        if (rp.r < rp.maxR * 0.4) {
-          const cracks = 5;
-          for (let c = 0; c < cracks; c++) {
-            const a = (c / cracks) * Math.PI * 2 + rp.r * 0.05;
-            const len = rp.r * (0.4 + Math.random() * 0.3);
-            ctx.strokeStyle = `rgba(255,255,255,${rp.alpha * 0.5})`;
-            ctx.lineWidth = 0.6;
-            ctx.beginPath();
-            ctx.moveTo(rp.x + Math.cos(a) * rp.r, rp.y + Math.sin(a) * rp.r);
-            ctx.lineTo(rp.x + Math.cos(a) * (rp.r + len * 0.4),
-                       rp.y + Math.sin(a) * (rp.r + len * 0.4));
-            ctx.stroke();
+      if (frame % 6 === 0) {
+        arcMap.forEach(offsets => {
+          offsets.forEach(o => {
+            o.dx = (Math.random() - 0.5) * ARC_DEV;
+            o.dy = (Math.random() - 0.5) * ARC_DEV;
+          });
+        });
+      }
+
+      nodes.forEach(node => {
+        node.x += node.vx;
+        node.y += node.vy;
+        if (node.x < 0 || node.x > canvas.width)  { node.vx *= -1; node.x = Math.max(0, Math.min(canvas.width,  node.x)); }
+        if (node.y < 0 || node.y > canvas.height)  { node.vy *= -1; node.y = Math.max(0, Math.min(canvas.height, node.y)); }
+        node.phase += 0.018;
+
+        const target = active
+          ? (() => { const d = Math.hypot(cx - node.x, cy - node.y); return d < CHARGE_R ? (1 - d / CHARGE_R) ** 2 : 0; })()
+          : 0;
+        node.charge += (target - node.charge) * 0.07;
+        if (!active) node.charge *= 0.93;
+      });
+
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const a = nodes[i], b = nodes[j];
+          const dx   = b.x - a.x, dy = b.y - a.y;
+          const dist = Math.hypot(dx, dy);
+          if (dist >= CONNECT_R) continue;
+
+          const proximity = 1 - dist / CONNECT_R;
+          const charge    = (a.charge + b.charge) * 0.5;
+          const baseAlpha = proximity * (0.07 + charge * 0.55);
+
+          if (charge > 0.38) {
+            const offsets = getArc(`${i}-${j}`);
+            const draw = (devScale: number, alpha: number, color: string, lw: number) => {
+              ctx.beginPath(); ctx.moveTo(a.x, a.y);
+              for (let s = 0; s < ARC_SEGS; s++) {
+                const t = (s + 1) / (ARC_SEGS + 1);
+                ctx.lineTo(a.x + dx * t + offsets[s].dx * charge * devScale, a.y + dy * t + offsets[s].dy * charge * devScale);
+              }
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.globalAlpha = alpha; ctx.stroke(); ctx.globalAlpha = 1;
+            };
+            draw(1,    baseAlpha,       `rgba(99,102,241,1)`,   0.5 + charge * 0.8);
+            draw(0.28, charge * 0.28,   `rgba(200,210,255,1)`,  0.5);
+          } else if (charge > 0.08) {
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(99,102,241,${baseAlpha})`; ctx.lineWidth = 0.5 + charge * 0.6; ctx.stroke();
+          } else {
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(79,70,229,${proximity * 0.07})`; ctx.lineWidth = 0.5; ctx.stroke();
           }
         }
       }
 
-      // ── Glass shards ──
-      for (let i = shards.length - 1; i >= 0; i--) {
-        const s = shards[i];
-        s.x += s.vx; s.y += s.vy;
-        s.vy += 0.09; s.vx *= 0.98;
-        s.alpha *= 0.91; s.rot += s.rotV;
-        if (s.alpha < 0.01) { shards.splice(i, 1); continue; }
-        ctx.save();
-        ctx.translate(s.x, s.y); ctx.rotate(s.rot);
-        ctx.globalAlpha = s.alpha;
-        ctx.fillStyle   = `${s.color}${(s.alpha * 0.8).toFixed(2)})`;
-        ctx.strokeStyle = `rgba(255,255,255,${(s.alpha * 0.5).toFixed(2)})`;
-        ctx.lineWidth = 0.6;
-        drawPoly(0, 0, s.sides, s.size);
-        ctx.fill(); ctx.stroke();
-        ctx.restore();
-      }
+      nodes.forEach(node => {
+        const pulse = Math.sin(node.phase) * 0.25 + 0.75;
+        const alpha = (node.baseAlpha + node.charge * 0.72) * pulse;
+        const r     = node.r + node.charge * 3.5;
+        if (node.charge > 0.08) {
+          const grad = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, r * 8);
+          grad.addColorStop(0, `rgba(99,102,241,${node.charge * 0.38})`);
+          grad.addColorStop(1, 'rgba(99,102,241,0)');
+          ctx.beginPath(); ctx.arc(node.x, node.y, r * 8, 0, Math.PI * 2);
+          ctx.fillStyle = grad; ctx.fill();
+        }
+        ctx.beginPath(); ctx.arc(node.x, node.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = node.charge > 0.3 ? `rgba(165,180,252,${alpha})` : `rgba(99,102,241,${alpha})`;
+        ctx.fill();
+      });
 
-      raf = requestAnimationFrame(tick);
+      pulses = pulses.filter(p => p.alpha > 0.01);
+      pulses.forEach(p => {
+        p.radius += (p.maxRadius - p.radius) * 0.055; p.alpha *= 0.928;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(99,102,241,${p.alpha * 0.55})`; ctx.lineWidth = 1; ctx.stroke();
+      });
+
+      if (active && cx > -900) {
+        const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, 92);
+        glow.addColorStop(0,   'rgba(79,70,229,0.20)');
+        glow.addColorStop(0.5, 'rgba(79,70,229,0.07)');
+        glow.addColorStop(1,   'rgba(79,70,229,0)');
+        ctx.beginPath(); ctx.arc(cx, cy, 92, 0, Math.PI * 2); ctx.fillStyle = glow; ctx.fill();
+
+        const rPulse = Math.sin(frame * 0.055) * 0.25 + 0.75;
+        ctx.beginPath(); ctx.arc(cx, cy, 11, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(165,180,252,${0.75 * rPulse})`; ctx.lineWidth = 1.5; ctx.stroke();
+
+        ctx.beginPath(); ctx.arc(cx, cy, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,255,255,0.88)'; ctx.fill();
+      }
     };
     tick();
 
