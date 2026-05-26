@@ -69,12 +69,12 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <div className="pt-24 pb-20 bg-slate-50 min-h-screen">
+    <div className="pt-20 pb-16 md:pt-24 md:pb-20 bg-slate-50 min-h-screen">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h1>
+        <div className="text-center mb-8 md:mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 md:mb-6">Frequently Asked Questions</h1>
           <p className="text-lg text-slate-600 mb-10">Everything you need to know about Pune's largest tech entrepreneur community.</p>
           
           {/* Search Bar */}
@@ -152,11 +152,11 @@ const FAQ: React.FC = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-20 bg-slate-900 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+        <div className="mt-12 md:mt-20 bg-slate-900 rounded-3xl p-7 md:p-12 text-center text-white relative overflow-hidden">
            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[100px] rounded-full"></div>
            <div className="relative z-10">
               <MessageCircle className="mx-auto text-primary mb-6" size={48} />
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">Still have questions?</h3>
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">Still have questions?</h3>
               <p className="text-slate-400 mb-8 max-w-lg mx-auto">
                 Can't find the answer you're looking for? Please reach out to our support team and we'll be happy to help.
               </p>

@@ -3,11 +3,11 @@ import { Mail, Phone, MapPin, Send, Clock } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
-    <div className="pt-24 pb-20 bg-slate-50 min-h-screen">
+    <div className="pt-16 pb-16 md:pt-24 md:pb-20 bg-slate-50 min-h-screen">
       {/* Header Banner */}
-      <div className="bg-primary text-white py-20 pb-32 mb-[-100px]">
+      <div className="bg-primary text-white py-14 pb-28 md:py-20 md:pb-32 mb-[-80px] md:mb-[-100px]">
          <div className="max-w-7xl mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Let's Start a Conversation</h1>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">Let's Start a Conversation</h1>
             <p className="text-blue-100 text-lg max-w-2xl mx-auto">
                 Whether you have a question about membership, events, or just want to say hello, we are here to help.
             </p>
@@ -18,7 +18,7 @@ const Contact: React.FC = () => {
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row min-h-[600px]">
             
             {/* Left Side: Contact Info (Dark) */}
-            <div className="bg-slate-900 text-white p-10 lg:p-12 lg:w-2/5 flex flex-col justify-between relative overflow-hidden">
+            <div className="bg-slate-900 text-white p-7 md:p-10 lg:p-12 lg:w-2/5 flex flex-col justify-between relative overflow-hidden">
                 {/* Background Pattern */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[80px] -mr-16 -mt-16"></div>
                 <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-500/10 rounded-full blur-[50px] -ml-10 -mb-10"></div>
@@ -75,7 +75,7 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Right Side: Form (White) */}
-            <div className="p-10 lg:p-12 lg:w-3/5 bg-white">
+            <div className="p-7 md:p-10 lg:p-12 lg:w-3/5 bg-white">
                 <h2 className="text-2xl font-bold text-slate-900 mb-2">Send us a Message</h2>
                 <p className="text-slate-500 mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
                 

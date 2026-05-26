@@ -13,9 +13,9 @@ const EventDetail: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-20 bg-white min-h-screen">
+    <div className="pt-16 bg-white min-h-screen">
       {/* Hero Image Section */}
-      <div className="relative h-[400px] w-full overflow-hidden">
+      <div className="relative h-[240px] md:h-[400px] w-full overflow-hidden">
         <img
           src="https://picsum.photos/seed/eventmain/1600/800"
           alt="Event Banner"
@@ -45,7 +45,7 @@ const EventDetail: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-20 -mt-10 md:mt-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-16 md:pb-20 -mt-10 md:mt-8">
         {/* Mobile Title (Visible only on small screens) */}
         <div className="md:hidden bg-white rounded-t-3xl p-6 -mt-16 relative z-20 border-b border-gray-100">
              <span className="inline-block bg-blue-100 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-3">
@@ -58,10 +58,10 @@ const EventDetail: React.FC = () => {
           
           {/* Main Content Column */}
           <div className="lg:w-2/3">
-             <div className="bg-white rounded-b-3xl md:rounded-3xl shadow-sm border border-gray-100 p-6 md:p-10">
+             <div className="bg-white rounded-b-3xl md:rounded-3xl shadow-sm border border-gray-100 p-5 md:p-10">
                 
                 {/* Meta Info Bar */}
-                <div className="flex flex-wrap gap-6 mb-10 text-slate-600 bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                <div className="flex flex-wrap gap-4 md:gap-6 mb-6 md:mb-10 text-slate-600 bg-slate-50 p-4 md:p-6 rounded-2xl border border-slate-100">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary">
                             <Calendar size={20} />
@@ -133,7 +133,7 @@ const EventDetail: React.FC = () => {
                 {/* Speakers */}
                 <div>
                     <h3 className="text-2xl font-bold text-slate-900 mb-6">Featured Speakers</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                         {[
                             { name: 'Dr. Sarah Johnson', role: 'CTO, Global AI Corp', img: 'https://picsum.photos/seed/spk1/100/100' },
                             { name: 'Rajiv Mehta', role: 'Partner, Venture India', img: 'https://picsum.photos/seed/spk2/100/100' },
@@ -162,7 +162,7 @@ const EventDetail: React.FC = () => {
              <div className=" sticky top-24 space-y-6">
                 
                 {/* Ticket Card */}
-                <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 relative overflow-hidden">
+                <div className="bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-gray-100 relative overflow-hidden">
                     <div className="absolute top-0 right-0 -mr-10 -mt-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
                     
                     <div className="mb-6">

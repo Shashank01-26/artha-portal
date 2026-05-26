@@ -18,7 +18,7 @@ const About: React.FC = () => {
   return (
     <div className="bg-white overflow-hidden">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-slate-50">
+      <section className="relative pt-24 pb-16 md:pt-32 md:pb-20 bg-slate-50">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
            <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-blue-100/50 blur-3xl"></div>
            <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-primary/5 blur-3xl"></div>
@@ -28,7 +28,7 @@ const About: React.FC = () => {
           <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-primary text-xs font-bold tracking-wider uppercase mb-6">
              Since 2015
           </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight">
             Building the Backbone of <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">
               Pune's Tech Economy
@@ -41,9 +41,9 @@ const About: React.FC = () => {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-24">
+      <section className="py-14 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
+          <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-16">
             <div className="lg:w-1/2">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
                 <img 
@@ -81,14 +81,14 @@ const About: React.FC = () => {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-24 bg-slate-50 border-t border-slate-200">
+      <section className="py-14 md:py-24 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">The Leadership Council</h2>
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4">The Leadership Council</h2>
             <p className="text-xl text-slate-500">Volunteers elected by the community to serve the community.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {leaders.map((leader, idx) => (
               <div key={idx} className="bg-white rounded-3xl p-2 shadow-sm hover:shadow-xl transition-all duration-300 group">
                 <div className="relative overflow-hidden rounded-2xl mb-4 aspect-square">
@@ -118,7 +118,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Advisory Board */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
            <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">Board of Advisors</h2>
            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -137,10 +137,10 @@ const About: React.FC = () => {
       </section>
 
       {/* Join CTA */}
-      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+      <section className="py-14 md:py-24 bg-slate-900 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[100px] -mr-20 -mt-20"></div>
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Want to help shape the ecosystem?</h2>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">Want to help shape the ecosystem?</h2>
           <p className="text-lg text-slate-400 mb-8">
             We are always looking for volunteers and committee members. If you have the passion to give back, join us.
           </p>

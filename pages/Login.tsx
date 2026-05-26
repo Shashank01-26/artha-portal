@@ -18,7 +18,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20 flex items-center justify-center bg-slate-50 px-4">
+    <div className="min-h-screen pt-16 flex items-center justify-center bg-slate-50 px-4 py-8">
       <div className="max-w-md w-full animate-fade-in">
         <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
           {/* Form Header */}

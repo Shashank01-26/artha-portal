@@ -331,7 +331,7 @@ const Home: React.FC = () => {
         <div className="orb w-[300px] h-[300px] bg-primary-light/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
         {/* Hero content */}
-        <div ref={hero.ref} className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 pt-32 pb-20 text-center">
+        <div ref={hero.ref} className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 pt-24 pb-16 md:pt-32 md:pb-20 text-center">
 
           {/* Badge */}
           <div className={`reveal ${hero.inView ? 'in-view' : ''} inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-primary/25 bg-primary/8 mb-10`}>
@@ -343,8 +343,8 @@ const Home: React.FC = () => {
 
           {/* Headline */}
           <h1 className={`reveal reveal-d1 ${hero.inView ? 'in-view' : ''} font-display font-extrabold tracking-[-0.03em] leading-[0.9] mb-8`}>
-            <span className="block text-6xl md:text-8xl lg:text-[96px] text-white mb-2">Where Founders</span>
-            <span className="block text-6xl md:text-8xl lg:text-[96px] text-gradient-primary">Build Empires.</span>
+            <span className="block text-[2.5rem] md:text-8xl lg:text-[96px] text-white mb-2">Where Founders</span>
+            <span className="block text-[2.5rem] md:text-8xl lg:text-[96px] text-gradient-primary">Build Empires.</span>
           </h1>
 
           {/* Subtext */}
@@ -393,18 +393,18 @@ const Home: React.FC = () => {
       </section>
 
       {/* ─── SECTION 2: MISSION ──────────────────────────────────────────────── */}
-      <section className="py-28 bg-[#FAFAFC] relative overflow-hidden">
+      <section className="py-16 md:py-28 bg-[#FAFAFC] relative overflow-hidden">
         <div className="absolute inset-0 bg-dot-light opacity-60 pointer-events-none" />
         <div ref={mission.ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
 
           {/* Label + heading */}
-          <div className="max-w-3xl mx-auto text-center mb-20">
+          <div className="max-w-3xl mx-auto text-center mb-10 md:mb-20">
             <div className={`reveal ${mission.inView ? 'in-view' : ''} flex items-center justify-center gap-3 mb-5`}>
               <div className="h-px w-12 bg-primary/40" />
               <span className="text-[11px] font-bold text-primary uppercase tracking-[0.12em]">The Mission</span>
               <div className="h-px w-12 bg-primary/40" />
             </div>
-            <h2 className={`reveal reveal-d1 ${mission.inView ? 'in-view' : ''} font-display font-bold text-4xl md:text-5xl text-[#0F1117] tracking-tight leading-tight mb-6`}>
+            <h2 className={`reveal reveal-d1 ${mission.inView ? 'in-view' : ''} font-display font-bold text-3xl md:text-4xl lg:text-5xl text-[#0F1117] tracking-tight leading-tight mb-6`}>
               Innovation Thrives<br />in Community.
             </h2>
             <p className={`reveal reveal-d2 ${mission.inView ? 'in-view' : ''} text-lg text-[#6B7280] leading-relaxed`}>
@@ -422,7 +422,7 @@ const Home: React.FC = () => {
             ].map(({ icon: Icon, number, label, delay }) => (
               <div
                 key={label}
-                className={`reveal ${delay} ${mission.inView ? 'in-view' : ''} hover-lift bg-white rounded-3xl p-8 shadow-card text-center group`}
+                className={`reveal ${delay} ${mission.inView ? 'in-view' : ''} hover-lift bg-white rounded-3xl p-5 md:p-8 shadow-card text-center group`}
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary/8 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary transition-colors duration-300">
                   <Icon size={26} className="text-primary group-hover:text-white transition-colors duration-300" />
@@ -436,20 +436,20 @@ const Home: React.FC = () => {
       </section>
 
       {/* ─── SECTION 3: ECOSYSTEM ────────────────────────────────────────────── */}
-      <section className="py-28 bg-[#0D0F1A] relative overflow-hidden" style={{ cursor: 'none' }}>
+      <section className="py-16 md:py-28 bg-[#0D0F1A] relative overflow-hidden" style={{ cursor: 'none' }}>
         <HeroCanvas />
         <div className="absolute inset-0 bg-line-grid pointer-events-none" />
         <div className="orb w-[500px] h-[500px] bg-primary/15 top-0 left-1/4 pointer-events-none" />
         <div className="orb w-[400px] h-[400px] bg-purple-600/10 bottom-0 right-1/4 pointer-events-none" />
 
         <div ref={ecosystem.ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-10 md:mb-20">
             <div className={`reveal ${ecosystem.inView ? 'in-view' : ''} flex items-center justify-center gap-3 mb-5`}>
               <div className="h-px w-12 bg-primary/40" />
               <span className="text-[11px] font-bold text-primary-light uppercase tracking-[0.12em]">The Ecosystem</span>
               <div className="h-px w-12 bg-primary/40" />
             </div>
-            <h2 className={`reveal reveal-d1 ${ecosystem.inView ? 'in-view' : ''} font-display font-bold text-4xl md:text-5xl text-white tracking-tight leading-tight mb-5`}>
+            <h2 className={`reveal reveal-d1 ${ecosystem.inView ? 'in-view' : ''} font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight leading-tight mb-5`}>
               Who Belongs Here.
             </h2>
             <p className={`reveal reveal-d2 ${ecosystem.inView ? 'in-view' : ''} text-lg text-white/40 leading-relaxed`}>
@@ -516,9 +516,9 @@ const Home: React.FC = () => {
       </section>
 
       {/* ─── SECTION 4: Artha ANGELS ──────────────────────────────────────────── */}
-      <section className="py-28 bg-[#FAFAFC] relative overflow-hidden">
+      <section className="py-16 md:py-28 bg-[#FAFAFC] relative overflow-hidden">
         <div ref={angels.ref} className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-start">
 
             {/* Left editorial column */}
             <div>
@@ -526,7 +526,7 @@ const Home: React.FC = () => {
                 <div className="h-px w-12 bg-primary/40" />
                 <span className="text-[11px] font-bold text-primary uppercase tracking-[0.12em]">Feature Spotlight: Artha Angels</span>
               </div>
-              <h2 className={`reveal reveal-d1 ${angels.inView ? 'in-view' : ''} font-display font-bold text-4xl md:text-5xl text-[#0F1117] tracking-tight leading-tight mb-4`}>
+              <h2 className={`reveal reveal-d1 ${angels.inView ? 'in-view' : ''} font-display font-bold text-3xl md:text-4xl lg:text-5xl text-[#0F1117] tracking-tight leading-tight mb-4`}>
                 Capital +<br />Context.
               </h2>
               <p className={`reveal reveal-d2 ${angels.inView ? 'in-view' : ''} text-xl text-[#9CA3AF] mb-10 font-medium`}>
@@ -620,17 +620,17 @@ const Home: React.FC = () => {
       </section>
 
       {/* ─── SECTION 5: MEMBERSHIP TIERS ─────────────────────────────────────── */}
-      <section className="py-28 bg-[#F2F3F8] relative overflow-hidden">
+      <section className="py-16 md:py-28 bg-[#F2F3F8] relative overflow-hidden">
         <div className="absolute inset-0 bg-dot-light opacity-50 pointer-events-none" />
         <div ref={membership.ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
 
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-8 md:mb-16">
             <div className={`reveal ${membership.inView ? 'in-view' : ''} flex items-center justify-center gap-3 mb-5`}>
               <div className="h-px w-12 bg-primary/40" />
               <span className="text-[11px] font-bold text-primary uppercase tracking-[0.12em]">Membership</span>
               <div className="h-px w-12 bg-primary/40" />
             </div>
-            <h2 className={`reveal reveal-d1 ${membership.inView ? 'in-view' : ''} font-display font-bold text-4xl md:text-5xl text-[#0F1117] tracking-tight mb-4`}>
+            <h2 className={`reveal reveal-d1 ${membership.inView ? 'in-view' : ''} font-display font-bold text-3xl md:text-4xl lg:text-5xl text-[#0F1117] tracking-tight mb-4`}>
               Choose Your Tier.
             </h2>
             <p className={`reveal reveal-d2 ${membership.inView ? 'in-view' : ''} text-lg text-[#6B7280]`}>
@@ -640,7 +640,7 @@ const Home: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Individual */}
-            <div className={`reveal ${membership.inView ? 'in-view' : ''} hover-lift bg-white rounded-3xl p-8 shadow-card flex flex-col`}>
+            <div className={`reveal ${membership.inView ? 'in-view' : ''} hover-lift bg-white rounded-3xl p-5 md:p-8 shadow-card flex flex-col`}>
               <div className="w-12 h-12 rounded-2xl bg-primary/8 flex items-center justify-center mb-6">
                 <User size={22} className="text-primary" />
               </div>
@@ -670,7 +670,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* Corporate - elevated */}
-            <div className={`reveal reveal-d1 ${membership.inView ? 'in-view' : ''} hover-lift bg-[#07080F] rounded-3xl p-8 shadow-glow-indigo flex flex-col relative overflow-hidden md:-translate-y-4`}>
+            <div className={`reveal reveal-d1 ${membership.inView ? 'in-view' : ''} hover-lift bg-[#07080F] rounded-3xl p-5 md:p-8 shadow-glow-indigo flex flex-col relative overflow-hidden md:-translate-y-4`}>
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[80px] rounded-full pointer-events-none" />
               <div className="relative z-10 flex flex-col h-full">
                 <div className="flex items-center justify-between mb-6">
@@ -711,16 +711,16 @@ const Home: React.FC = () => {
       </section>
 
       {/* ─── SECTION 6: WHY PUNE? ────────────────────────────────────────────── */}
-      <section className="py-28 bg-[#FAFAFC] relative overflow-hidden">
+      <section className="py-16 md:py-28 bg-[#FAFAFC] relative overflow-hidden">
         <div ref={pune.ref} className="max-w-7xl mx-auto px-6 lg:px-8">
 
-          <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-10 md:mb-20">
             <div className={`reveal ${pune.inView ? 'in-view' : ''} flex items-center justify-center gap-3 mb-5`}>
               <div className="h-px w-12 bg-primary/40" />
               <span className="text-[11px] font-bold text-primary uppercase tracking-[0.12em]">The Ecosystem Advantage</span>
               <div className="h-px w-12 bg-primary/40" />
             </div>
-            <h2 className={`reveal reveal-d1 ${pune.inView ? 'in-view' : ''} font-display font-bold text-4xl md:text-5xl text-[#0F1117] tracking-tight mb-5`}>
+            <h2 className={`reveal reveal-d1 ${pune.inView ? 'in-view' : ''} font-display font-bold text-3xl md:text-4xl lg:text-5xl text-[#0F1117] tracking-tight mb-5`}>
               Why Build in Pune?
             </h2>
             <p className={`reveal reveal-d2 ${pune.inView ? 'in-view' : ''} text-xl text-[#6B7280]`}>
@@ -755,7 +755,7 @@ const Home: React.FC = () => {
             ].map(({ num, icon: Icon, title, body, delay }) => (
               <div
                 key={num}
-                className={`reveal ${delay} ${pune.inView ? 'in-view' : ''} hover-lift bg-white rounded-3xl p-8 shadow-card group`}
+                className={`reveal ${delay} ${pune.inView ? 'in-view' : ''} hover-lift bg-white rounded-3xl p-5 md:p-8 shadow-card group`}
               >
                 <p className="font-display font-bold text-5xl text-gradient-primary mb-6 leading-none">{num}</p>
                 <div className="w-11 h-11 rounded-2xl bg-primary/8 flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300">
@@ -777,8 +777,8 @@ const Home: React.FC = () => {
             <h2 className="font-display font-bold text-3xl text-[#0F1117] tracking-tight">Life at Artha</h2>
           </div>
 
-          <div className={`reveal reveal-d1 ${gallery.inView ? 'in-view' : ''} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 h-auto md:h-[500px]`}>
-            <div className="lg:col-span-2 row-span-2 relative group overflow-hidden rounded-3xl">
+          <div className={`reveal reveal-d1 ${gallery.inView ? 'in-view' : ''} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 h-auto lg:h-[500px]`}>
+            <div className="lg:col-span-2 lg:row-span-2 relative group overflow-hidden rounded-3xl h-64 md:h-auto">
               <img
                 src="https://picsum.photos/seed/tech1/800/800"
                 alt="Annual Tech Summit"
@@ -791,7 +791,7 @@ const Home: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="relative group overflow-hidden rounded-3xl">
+            <div className="relative group overflow-hidden rounded-3xl h-48 md:h-auto">
               <img
                 src="https://picsum.photos/seed/tech2/400/400"
                 alt="Networking Mixers"
@@ -801,7 +801,7 @@ const Home: React.FC = () => {
                 <h3 className="font-display font-bold text-lg text-white">Networking Mixers</h3>
               </div>
             </div>
-            <div className="relative group overflow-hidden rounded-3xl">
+            <div className="relative group overflow-hidden rounded-3xl h-48 md:h-auto">
               <img
                 src="https://picsum.photos/seed/tech3/400/400"
                 alt="Workshops"
@@ -811,7 +811,7 @@ const Home: React.FC = () => {
                 <h3 className="font-display font-bold text-lg text-white">Workshops & Labs</h3>
               </div>
             </div>
-            <div className="lg:col-span-2 relative group overflow-hidden rounded-3xl">
+            <div className="lg:col-span-2 relative group overflow-hidden rounded-3xl h-48 md:h-auto">
               <img
                 src="https://picsum.photos/seed/tech4/800/400"
                 alt="Pune Hackathon"
@@ -829,7 +829,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* ─── SECTION 8: CTA ──────────────────────────────────────────────────── */}
-      <section className="py-28 bg-[#07080F] relative overflow-hidden">
+      <section className="py-16 md:py-28 bg-[#07080F] relative overflow-hidden">
         <div className="absolute inset-0 bg-dot-grid pointer-events-none" />
         <div className="orb w-[500px] h-[500px] bg-primary/20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
@@ -839,7 +839,7 @@ const Home: React.FC = () => {
             <span className="text-[11px] font-bold text-primary-light uppercase tracking-[0.12em]">Join the Community</span>
             <div className="h-px w-12 bg-primary/40" />
           </div>
-          <h2 className={`reveal reveal-d1 ${cta.inView ? 'in-view' : ''} font-display font-bold text-4xl md:text-6xl text-white tracking-tight leading-tight mb-6`}>
+          <h2 className={`reveal reveal-d1 ${cta.inView ? 'in-view' : ''} font-display font-bold text-3xl md:text-5xl lg:text-6xl text-white tracking-tight leading-tight mb-6`}>
             Ready to Scale<br />Your Startup?
           </h2>
           <p className={`reveal reveal-d2 ${cta.inView ? 'in-view' : ''} text-lg text-white/40 mb-10 leading-relaxed`}>

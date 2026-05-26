@@ -94,14 +94,14 @@ const CompanyDetail: React.FC = () => {
   }
 
   return (
-    <div className="pt-20 bg-slate-50 min-h-screen">
+    <div className="pt-16 bg-slate-50 min-h-screen">
       {/* Hero Banner Decor */}
-      <div className="h-48 bg-slate-900 relative overflow-hidden">
+      <div className="h-36 md:h-48 bg-slate-900 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#0539E3_1px,transparent_1px)] [background-size:20px_20px]"></div>
         <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 pb-24 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 md:-mt-24 pb-16 md:pb-24 relative z-10">
         <Link to="/members" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 text-sm font-bold transition-colors">
           <ArrowLeft size={16} /> Back to Ecosystem Portal
         </Link>
@@ -109,14 +109,14 @@ const CompanyDetail: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            <div className="bg-white rounded-[2.5rem] p-8 md:p-12 border border-slate-200 shadow-xl shadow-slate-200/50">
-              <div className="flex flex-col md:flex-row md:items-center gap-8 mb-12">
+            <div className="bg-white rounded-[1.5rem] md:rounded-[2.5rem] p-5 md:p-12 border border-slate-200 shadow-xl shadow-slate-200/50">
+              <div className="flex flex-col md:flex-row md:items-center gap-5 md:gap-8 mb-8 md:mb-12">
                 <div className="w-24 h-24 bg-white rounded-[2rem] overflow-hidden flex items-center justify-center shadow-2xl ring-4 ring-slate-50">
                   <img src={companyData.logo} alt="Logo" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <div className="flex flex-wrap items-center gap-3 mb-2">
-                    <h1 className="text-4xl font-black text-slate-900 tracking-tight">{companyData.name}</h1>
+                    <h1 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tight">{companyData.name}</h1>
                     <span className="bg-primary/10 text-primary text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest border border-primary/20">
                       {companyData.stage}
                     </span>
@@ -140,7 +140,7 @@ const CompanyDetail: React.FC = () => {
                 <h2 className="text-2xl font-black text-slate-900 mb-6 tracking-tight flex items-center gap-3">
                   <Layers className="text-primary" size={24} /> Product Showcase
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-12">
                   {companyData.products.map((product, idx) => (
                     <div key={idx} className="bg-slate-50 p-6 rounded-3xl border border-slate-100 hover:bg-white hover:shadow-lg transition-all duration-300">
                       <div className="mb-4">{product.icon}</div>
@@ -165,11 +165,11 @@ const CompanyDetail: React.FC = () => {
               </div>
 
               {/* Founders Section */}
-              <div className="mt-16 pt-12 border-t border-slate-100">
+              <div className="mt-10 md:mt-16 pt-8 md:pt-12 border-t border-slate-100">
                 <h2 className="text-2xl font-black text-slate-900 mb-8 tracking-tight">Meet the Founders</h2>
                 <div className="grid grid-cols-1 gap-8">
                   {companyData.founders.map((founder, idx) => (
-                    <div key={idx} className="bg-slate-50 rounded-3xl p-8 border border-slate-100 flex flex-col md:flex-row gap-8 items-center md:items-start transition-all hover:shadow-md hover:bg-white">
+                    <div key={idx} className="bg-slate-50 rounded-3xl p-5 md:p-8 border border-slate-100 flex flex-col md:flex-row gap-5 md:gap-8 items-center md:items-start transition-all hover:shadow-md hover:bg-white">
                       <img src={founder.avatar} alt={founder.name} className="w-24 h-24 rounded-full border-4 border-white shadow-lg bg-white shrink-0" />
                       <div className="flex-1">
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
@@ -198,8 +198,8 @@ const CompanyDetail: React.FC = () => {
           </div>
 
           {/* Sidebar Info */}
-          <div className="space-y-8">
-            <div className="bg-white rounded-[2.5rem] p-8 border border-slate-200 shadow-lg">
+          <div className="space-y-5 md:space-y-8">
+            <div className="bg-white rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-8 border border-slate-200 shadow-lg">
               <h3 className="text-lg font-black text-slate-900 mb-8 uppercase tracking-tight">Vitals</h3>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
@@ -236,7 +236,7 @@ const CompanyDetail: React.FC = () => {
             </div>
 
             {/* Social Media Section */}
-            <div className="bg-white rounded-[2.5rem] p-8 border border-slate-200 shadow-lg">
+            <div className="bg-white rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-8 border border-slate-200 shadow-lg">
               <h3 className="text-lg font-black text-slate-900 mb-6 uppercase tracking-tight flex items-center gap-2">
                 <Share2 size={20} className="text-primary" /> Social Presence
               </h3>
@@ -259,7 +259,7 @@ const CompanyDetail: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-primary to-primary-dark rounded-[2.5rem] p-8 text-white shadow-2xl shadow-primary/30 relative overflow-hidden">
+            <div className="bg-gradient-to-br from-primary to-primary-dark rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-8 text-white shadow-2xl shadow-primary/30 relative overflow-hidden">
               <div className="relative z-10">
                 <ShieldCheck className="mb-6 opacity-80" size={48} />
                 <h3 className="text-xl font-bold mb-4">Artha Verified</h3>
@@ -272,7 +272,7 @@ const CompanyDetail: React.FC = () => {
               </div>
             </div>
             
-            <div className="bg-white rounded-[2.5rem] p-8 border border-slate-200 text-center">
+            <div className="bg-white rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-8 border border-slate-200 text-center">
               <Rocket className="mx-auto text-primary mb-4" size={32} />
               <h4 className="font-bold text-slate-900 mb-2">Want a similar page?</h4>
               <p className="text-xs text-slate-500 mb-6">Join Artha to showcase your brand to Pune's tech giants.</p>

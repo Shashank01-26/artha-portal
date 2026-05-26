@@ -5,7 +5,7 @@ const Mission: React.FC = () => {
   return (
     <div className="bg-white overflow-hidden">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-slate-50">
+      <section className="relative pt-24 pb-14 md:pt-32 md:pb-20 bg-slate-50">
          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-primary/5 blur-3xl"></div>
          <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-blue-400/5 blur-3xl"></div>
          
@@ -13,7 +13,7 @@ const Mission: React.FC = () => {
             <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-primary text-xs font-bold tracking-wider uppercase mb-6">
               Our North Star
             </span>
-            <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 mt-2 mb-8 tracking-tight leading-tight">
+            <h1 className="text-[2.5rem] md:text-6xl lg:text-7xl font-extrabold text-slate-900 mt-2 mb-6 md:mb-8 tracking-tight leading-tight">
               Empowering the <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">
                 Builders of Tomorrow
@@ -26,11 +26,11 @@ const Mission: React.FC = () => {
       </section>
 
       {/* Vision & Mission Cards */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 {/* Mission Card */}
-                <div className="p-10 rounded-3xl bg-white border border-slate-100 shadow-xl hover:shadow-2xl transition-all duration-300 group flex flex-col h-full">
+                <div className="p-7 md:p-10 rounded-3xl bg-white border border-slate-100 shadow-xl hover:shadow-2xl transition-all duration-300 group flex flex-col h-full">
                     <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-primary mb-8 group-hover:scale-110 transition-transform duration-300">
                         <Target size={32} />
                     </div>
@@ -41,7 +41,7 @@ const Mission: React.FC = () => {
                 </div>
 
                 {/* Vision Card */}
-                <div className="p-10 rounded-3xl bg-slate-900 text-white shadow-xl relative overflow-hidden group flex flex-col h-full">
+                <div className="p-7 md:p-10 rounded-3xl bg-slate-900 text-white shadow-xl relative overflow-hidden group flex flex-col h-full">
                      <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/30 transition-colors duration-500"></div>
                     <div className="relative z-10">
                         <div className="w-14 h-14 bg-slate-800 border border-slate-700 rounded-2xl flex items-center justify-center text-blue-400 mb-8 group-hover:scale-110 transition-transform duration-300">
@@ -58,28 +58,28 @@ const Mission: React.FC = () => {
       </section>
 
       {/* Strategic Pillars */}
-      <section className="py-24 bg-slate-50 border-t border-slate-200">
+      <section className="py-14 md:py-24 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Strategic Pillars</h2>
+            <div className="text-center mb-10 md:mb-16">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Strategic Pillars</h2>
                 <p className="text-xl text-slate-500">How we translate our vision into reality.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center hover:-translate-y-2 transition-transform duration-300">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
+                <div className="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 text-center hover:-translate-y-2 transition-transform duration-300">
                     <div className="w-16 h-16 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <Users size={32} />
                     </div>
                     <h3 className="text-xl font-bold text-slate-900 mb-3">Community First</h3>
                     <p className="text-slate-600 leading-relaxed">Building a dense network of high-trust relationships between founders, avoiding transactional interactions.</p>
                 </div>
-                <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center hover:-translate-y-2 transition-transform duration-300">
+                <div className="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 text-center hover:-translate-y-2 transition-transform duration-300">
                      <div className="w-16 h-16 bg-blue-50 text-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <Rocket size={32} />
                     </div>
                     <h3 className="text-xl font-bold text-slate-900 mb-3">Global Access</h3>
                     <p className="text-slate-600 leading-relaxed">Bridging the gap between Pune and global markets like Silicon Valley, London, and Singapore.</p>
                 </div>
-                <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center hover:-translate-y-2 transition-transform duration-300">
+                <div className="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 text-center hover:-translate-y-2 transition-transform duration-300">
                      <div className="w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <Shield size={32} />
                     </div>
@@ -91,12 +91,12 @@ const Mission: React.FC = () => {
       </section>
 
       {/* Core Values */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-             <h2 className="text-3xl font-bold text-slate-900">Our DNA</h2>
+          <div className="text-center mb-8 md:mb-12">
+             <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Our DNA</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
              {[
                 { title: "Integrity", desc: "We do the right thing, even when no one is watching.", color: "bg-red-50 text-red-600" },
                 { title: "Innovation", desc: "We challenge the status quo and embrace change.", color: "bg-orange-50 text-orange-600" },

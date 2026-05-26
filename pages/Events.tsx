@@ -6,9 +6,9 @@ import { Calendar, MapPin, Clock, ArrowRight } from 'lucide-react';
 
 const Events: React.FC = () => {
   return (
-    <div className="pt-24 pb-20 bg-white">
+    <div className="pt-20 pb-16 md:pt-24 md:pb-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-slate-900 mb-12">Upcoming Events</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8 md:mb-12">Upcoming Events</h1>
 
         <div className="grid gap-8">
           {/* Featured Event */}
@@ -21,9 +21,9 @@ const Events: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
             </div>
-            <div className="relative p-8 md:p-12 lg:w-2/3">
+            <div className="relative p-6 md:p-12 lg:w-2/3">
               <span className="inline-block bg-primary px-3 py-1 rounded text-xs font-bold uppercase tracking-wide mb-4">Featured</span>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">Pune Tech Summit 2024</h2>
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">Pune Tech Summit 2024</h2>
               <p className="text-lg text-slate-300 mb-8 max-w-xl">
                 The biggest gathering of tech minds in Maharashtra. 3 days of keynotes, workshops, and networking with industry titans.
               </p>
@@ -39,7 +39,7 @@ const Events: React.FC = () => {
           </div>
 
           {/* Regular Events Grid */}
-          <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">November Schedule</h3>
+          <h3 className="text-xl md:text-2xl font-bold text-slate-900 mt-8 md:mt-12 mb-4 md:mb-6">November Schedule</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3].map((i) => (
               <div key={i} className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition-all">

@@ -186,77 +186,119 @@ const Dashboard: React.FC = () => {
   const labelCls = 'block text-[10px] font-bold text-[#9CA3AF] uppercase tracking-[0.12em] mb-1.5';
 
   return (
-    <div className="min-h-screen bg-[#F2F3F8] flex flex-col lg:flex-row pt-16">
+    <div className="min-h-screen bg-[#F2F3F8] flex flex-col pt-16">
 
-      {/* ─── SIDEBAR ─────────────────────────────────────────────────────────── */}
-      <aside className="w-full lg:w-64 bg-[#07080F] border-r border-white/8 lg:fixed lg:h-[calc(100vh-64px)] z-20 flex flex-col">
-        <div className="flex flex-col h-full px-4 py-6">
-
-          {/* Company logo widget */}
-          <div className="flex items-center gap-3 mb-8 p-3.5 bg-white/5 rounded-2xl border border-white/8">
-            <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center bg-[#141728] border border-white/10 flex-shrink-0">
-              <img src={companyInfo.logo} alt="Logo" className="w-full h-full object-cover" />
-            </div>
-            <div className="overflow-hidden">
-              <p className="font-bold text-white text-sm truncate leading-tight">{companyInfo.name}</p>
-              <span className="flex items-center gap-1 text-[9px] text-green-400/80 font-bold uppercase tracking-[0.1em] mt-0.5">
-                <Shield size={8} /> Verified
-              </span>
-            </div>
+      {/* ─── MOBILE TAB BAR ──────────────────────────────────────────────────── */}
+      <div className="lg:hidden bg-[#07080F] border-b border-white/8 sticky top-16 z-20">
+        {/* Company logo strip */}
+        <div className="flex items-center gap-2.5 px-4 py-3 border-b border-white/5">
+          <div className="w-7 h-7 rounded-lg overflow-hidden flex-shrink-0 bg-[#141728] border border-white/10">
+            <img src={companyInfo.logo} alt="Logo" className="w-full h-full object-cover" />
           </div>
-
-          <nav className="flex-1 space-y-0.5 overflow-y-auto">
-            <p className="px-3 text-[9px] font-bold text-white/30 uppercase tracking-[0.12em] mb-3">Brand Management</p>
-            {[
-              { id: 'company', label: 'Company Profile', icon: Building2 },
-              { id: 'showcase', label: 'Portal Showcase', icon: Rocket },
-              { id: 'directory', label: 'Pune Ecosystem', icon: LayoutDashboard },
-            ].map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
-                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
-                  activeTab === tab.id
-                    ? 'bg-primary text-white shadow-glow-indigo'
-                    : 'text-white/40 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                <tab.icon size={16} /> {tab.label}
-              </button>
-            ))}
-
-            <div className="pt-5 mt-5 border-t border-white/8">
-              <p className="px-3 text-[9px] font-bold text-white/30 uppercase tracking-[0.12em] mb-3">Member Tools</p>
-              <button
-                onClick={() => setActiveTab('user')}
-                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
-                  activeTab === 'user'
-                    ? 'bg-primary text-white shadow-glow-indigo'
-                    : 'text-white/40 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                <User size={16} /> Personal Profile
-              </button>
-              <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-white/40 hover:text-white hover:bg-white/5 transition-all duration-200">
-                <Bell size={16} /> Inbound Leads
-              </button>
-              <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-white/40 hover:text-white hover:bg-white/5 transition-all duration-200">
-                <Settings size={16} /> Preferences
-              </button>
-            </div>
-          </nav>
-
+          <p className="font-bold text-white text-xs truncate flex-1">{companyInfo.name}</p>
+          <span className="flex items-center gap-1 text-[9px] text-green-400/80 font-bold uppercase tracking-[0.1em] flex-shrink-0">
+            <Shield size={8} /> Verified
+          </span>
           <button
             onClick={handleLogout}
-            className="mt-6 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-red-500/70 hover:text-red-500 hover:bg-red-500/8 transition-all duration-200 text-sm border border-transparent hover:border-red-500/15"
+            className="ml-2 flex items-center gap-1 text-red-500/70 hover:text-red-500 transition-colors text-xs font-semibold flex-shrink-0"
           >
-            <LogOut size={16} /> Sign Out
+            <LogOut size={14} />
           </button>
         </div>
-      </aside>
+        {/* Scrollable tab row */}
+        <div className="flex overflow-x-auto scrollbar-none px-2 py-2 gap-1">
+          {[
+            { id: 'company', label: 'Company', icon: Building2 },
+            { id: 'showcase', label: 'Showcase', icon: Rocket },
+            { id: 'directory', label: 'Ecosystem', icon: LayoutDashboard },
+            { id: 'user', label: 'Profile', icon: User },
+          ].map(tab => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id as any)}
+              className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-200 whitespace-nowrap ${
+                activeTab === tab.id
+                  ? 'bg-primary text-white'
+                  : 'text-white/50 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              <tab.icon size={13} /> {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
 
-      {/* ─── CONTENT AREA ────────────────────────────────────────────────────── */}
-      <main className="flex-1 lg:ml-64">
+      <div className="flex flex-row flex-1">
+        {/* ─── SIDEBAR (desktop only) ──────────────────────────────────────────── */}
+        <aside className="hidden lg:flex w-64 bg-[#07080F] border-r border-white/8 fixed h-[calc(100vh-64px)] z-20 flex-col">
+          <div className="flex flex-col h-full px-4 py-6">
+
+            {/* Company logo widget */}
+            <div className="flex items-center gap-3 mb-8 p-3.5 bg-white/5 rounded-2xl border border-white/8">
+              <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center bg-[#141728] border border-white/10 flex-shrink-0">
+                <img src={companyInfo.logo} alt="Logo" className="w-full h-full object-cover" />
+              </div>
+              <div className="overflow-hidden">
+                <p className="font-bold text-white text-sm truncate leading-tight">{companyInfo.name}</p>
+                <span className="flex items-center gap-1 text-[9px] text-green-400/80 font-bold uppercase tracking-[0.1em] mt-0.5">
+                  <Shield size={8} /> Verified
+                </span>
+              </div>
+            </div>
+
+            <nav className="flex-1 space-y-0.5 overflow-y-auto">
+              <p className="px-3 text-[9px] font-bold text-white/30 uppercase tracking-[0.12em] mb-3">Brand Management</p>
+              {[
+                { id: 'company', label: 'Company Profile', icon: Building2 },
+                { id: 'showcase', label: 'Portal Showcase', icon: Rocket },
+                { id: 'directory', label: 'Pune Ecosystem', icon: LayoutDashboard },
+              ].map(tab => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id as any)}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                    activeTab === tab.id
+                      ? 'bg-primary text-white shadow-glow-indigo'
+                      : 'text-white/40 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  <tab.icon size={16} /> {tab.label}
+                </button>
+              ))}
+
+              <div className="pt-5 mt-5 border-t border-white/8">
+                <p className="px-3 text-[9px] font-bold text-white/30 uppercase tracking-[0.12em] mb-3">Member Tools</p>
+                <button
+                  onClick={() => setActiveTab('user')}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                    activeTab === 'user'
+                      ? 'bg-primary text-white shadow-glow-indigo'
+                      : 'text-white/40 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  <User size={16} /> Personal Profile
+                </button>
+                <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-white/40 hover:text-white hover:bg-white/5 transition-all duration-200">
+                  <Bell size={16} /> Inbound Leads
+                </button>
+                <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-white/40 hover:text-white hover:bg-white/5 transition-all duration-200">
+                  <Settings size={16} /> Preferences
+                </button>
+              </div>
+            </nav>
+
+            <button
+              onClick={handleLogout}
+              className="mt-6 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-red-500/70 hover:text-red-500 hover:bg-red-500/8 transition-all duration-200 text-sm border border-transparent hover:border-red-500/15"
+            >
+              <LogOut size={16} /> Sign Out
+            </button>
+          </div>
+        </aside>
+
+        {/* ─── CONTENT AREA ────────────────────────────────────────────────────── */}
+        <main className="flex-1 lg:ml-64 min-w-0">
 
         {/* Header */}
         <div className="bg-white border-b border-black/6 px-6 lg:px-10 py-5">
@@ -868,7 +910,8 @@ const Dashboard: React.FC = () => {
             </div>
           )}
         </div>
-      </main>
+        </main>
+      </div>
     </div>
   );
 };

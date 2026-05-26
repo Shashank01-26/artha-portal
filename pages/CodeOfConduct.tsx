@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 
 const CodeOfConduct: React.FC = () => {
   return (
-    <div className="pt-24 pb-20 bg-slate-50 min-h-screen">
+    <div className="pt-20 pb-16 md:pt-24 md:pb-20 bg-slate-50 min-h-screen">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 md:mb-12">
           <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-primary text-xs font-bold tracking-wider uppercase mb-4">
             Community Standards
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Code of Conduct</h1>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Code of Conduct</h1>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Establishing a culture of respect, collaboration, and professional excellence within Pune's tech ecosystem.
           </p>
@@ -20,12 +20,12 @@ const CodeOfConduct: React.FC = () => {
 
         {/* Content Card */}
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-          <div className="p-8 md:p-12 space-y-12 text-slate-600 leading-relaxed">
+          <div className="p-6 md:p-12 space-y-8 md:space-y-12 text-slate-600 leading-relaxed">
             
             {/* Our Pledge */}
-            <div className="bg-blue-50/50 p-8 rounded-2xl border border-blue-100">
-              <h2 className="flex items-center gap-3 text-2xl font-bold text-slate-900 mb-4">
-                <Heart className="text-primary" size={24} />
+            <div className="bg-blue-50/50 p-6 md:p-8 rounded-2xl border border-blue-100">
+              <h2 className="flex items-center gap-3 text-xl md:text-2xl font-bold text-slate-900 mb-4">
+                <Heart className="text-primary shrink-0" size={24} />
                 Our Pledge
               </h2>
               <p className="text-slate-700">
@@ -35,11 +35,11 @@ const CodeOfConduct: React.FC = () => {
 
             {/* Expected Behavior */}
             <div>
-              <h2 className="flex items-center gap-3 text-2xl font-bold text-slate-900 mb-4">
-                <ShieldCheck className="text-primary" size={24} />
+              <h2 className="flex items-center gap-3 text-xl md:text-2xl font-bold text-slate-900 mb-4">
+                <ShieldCheck className="text-primary shrink-0" size={24} />
                 Expected Behavior
               </h2>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                 <li className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
                   <span>Participating in an authentic and active way.</span>
@@ -63,8 +63,8 @@ const CodeOfConduct: React.FC = () => {
 
             {/* Unacceptable Behavior */}
             <div>
-              <h2 className="flex items-center gap-3 text-2xl font-bold text-slate-900 mb-4">
-                <AlertTriangle className="text-red-500" size={24} />
+              <h2 className="flex items-center gap-3 text-xl md:text-2xl font-bold text-slate-900 mb-4">
+                <AlertTriangle className="text-red-500 shrink-0" size={24} />
                 Unacceptable Behavior
               </h2>
               <p className="mb-4">The following behaviors are considered harassment and are unacceptable within our community:</p>
@@ -89,14 +89,14 @@ const CodeOfConduct: React.FC = () => {
 
             {/* Reporting */}
             <div className="group">
-              <h2 className="flex items-center gap-3 text-2xl font-bold text-slate-900 mb-4">
-                <MessageCircle className="text-primary" size={24} />
+              <h2 className="flex items-center gap-3 text-xl md:text-2xl font-bold text-slate-900 mb-4">
+                <MessageCircle className="text-primary shrink-0" size={24} />
                 Reporting Guidelines
               </h2>
               <p className="mb-6">
                 If you are subject to or witness unacceptable behavior, or have any other concerns, please notify a Artha organizer as soon as possible.
               </p>
-              <div className="bg-slate-900 text-white p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-6">
+              <div className="bg-slate-900 text-white p-5 md:p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 md:gap-6">
                 <div className="flex items-center gap-4">
                   <div className="bg-primary/20 p-3 rounded-full">
                     <Info className="text-primary" size={24} />
@@ -116,8 +116,8 @@ const CodeOfConduct: React.FC = () => {
 
             {/* Enforcement */}
             <div>
-              <h2 className="flex items-center gap-3 text-2xl font-bold text-slate-900 mb-4">
-                <Scale className="text-primary" size={24} />
+              <h2 className="flex items-center gap-3 text-xl md:text-2xl font-bold text-slate-900 mb-4">
+                <Scale className="text-primary shrink-0" size={24} />
                 Enforcement
               </h2>
               <p>

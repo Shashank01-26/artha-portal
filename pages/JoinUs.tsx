@@ -94,24 +94,24 @@ const JoinUs: React.FC = () => {
   }
 
   return (
-    <div className="pt-24 pb-20 bg-slate-50 min-h-screen">
+    <div className="pt-20 pb-16 md:pt-24 md:pb-20 bg-slate-50 min-h-screen">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">Startup Onboarding</h1>
+        <div className="text-center mb-8 md:mb-12">
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Startup Onboarding</h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Become a part of Pune's premier tech ecosystem. Fill out the details below to apply for membership.
           </p>
         </div>
 
         <div className="bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 overflow-hidden">
-          <div className="bg-primary px-10 py-8">
+          <div className="bg-primary px-6 py-6 md:px-10 md:py-8">
             <h2 className="text-white text-2xl font-black flex items-center gap-3">
                Application Portal
             </h2>
             <p className="text-blue-100 text-sm mt-1 font-medium opacity-80">Please provide accurate details for the Artha verification process.</p>
           </div>
           
-          <form className="p-8 md:p-12 space-y-16" onSubmit={handleSubmit}>
+          <form className="p-5 md:p-12 space-y-10 md:space-y-16" onSubmit={handleSubmit}>
             
             {/* SECTION: Create Account */}
             <div className="space-y-8">
@@ -127,7 +127,7 @@ const JoinUs: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-slate-50/50 p-8 rounded-[2rem] border border-slate-100 shadow-inner">
+              <div className="bg-slate-50/50 p-5 md:p-8 rounded-[2rem] border border-slate-100 shadow-inner">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="md:col-span-2">
                     <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2 px-1">Full Administrative Name *</label>
@@ -180,9 +180,9 @@ const JoinUs: React.FC = () => {
 
             {/* SECTION: Founders Details */}
             <div className="space-y-8">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
                 <div className="flex items-center gap-4">
-                  <div className="bg-purple-50 p-3 rounded-2xl text-purple-600 shadow-sm border border-purple-100">
+                  <div className="bg-purple-50 p-3 rounded-2xl text-purple-600 shadow-sm border border-purple-100 flex-shrink-0">
                     <Users size={24} />
                   </div>
                   <div>
@@ -190,10 +190,10 @@ const JoinUs: React.FC = () => {
                     <p className="text-xs text-slate-500 font-medium">As they will appear on the public Ecosystem Portal.</p>
                   </div>
                 </div>
-                <button 
+                <button
                   type="button"
                   onClick={addFounder}
-                  className="flex items-center gap-2 px-4 py-2 bg-purple-50 text-purple-600 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-purple-100 transition-all border border-purple-100"
+                  className="self-start sm:self-auto flex items-center gap-2 px-4 py-2 bg-purple-50 text-purple-600 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-purple-100 transition-all border border-purple-100"
                 >
                   <Plus size={14} /> Add Founder
                 </button>
@@ -201,7 +201,7 @@ const JoinUs: React.FC = () => {
 
               <div className="space-y-6">
                 {formData.founders.map((founder, index) => (
-                  <div key={founder.id} className="bg-slate-50/50 p-8 rounded-[2rem] border border-slate-100 shadow-sm relative group animate-fade-in">
+                  <div key={founder.id} className="bg-slate-50/50 p-5 md:p-8 rounded-[2rem] border border-slate-100 shadow-sm relative group animate-fade-in">
                     {formData.founders.length > 1 && (
                       <button 
                         type="button"
@@ -215,7 +215,7 @@ const JoinUs: React.FC = () => {
                        <span className="w-6 h-6 rounded-lg bg-white flex items-center justify-center border border-slate-200 text-primary">#{index + 1}</span>
                        Founder Profile
                     </h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
                       <div>
                         <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2 px-1">Public Display Name *</label>
                         <input 
