@@ -13,8 +13,8 @@ const FAQ: React.FC = () => {
       icon: <Users size={20} />,
       questions: [
         {
-          q: "Who is eligible to join TEAP?",
-          a: "TEAP is primarily for tech founders, co-founders, and C-level executives of startups based in or operating out of Pune. We also welcome freelancers and individual tech professionals in our Individual tier."
+          q: "Who is eligible to join Artha?",
+          a: "Artha is primarily for tech founders, co-founders, and C-level executives of startups based in or operating out of Pune. We also welcome freelancers and individual tech professionals in our Individual tier."
         },
         {
           q: "What is the membership fee?",
@@ -31,11 +31,11 @@ const FAQ: React.FC = () => {
       icon: <Rocket size={20} />,
       questions: [
         {
-          q: "Are TEAP events open to non-members?",
+          q: "Are Artha events open to non-members?",
           a: "Most flagship events like the Pune Tech Summit have public tickets available. However, monthly mixers, masterclasses, and peer learning circles are strictly member-only."
         },
         {
-          q: "How can I pitch my startup to TEAP Angels?",
+          q: "How can I pitch my startup to Artha Angels?",
           a: "Members can apply for the 'Capital + Context' program quarterly. Selected startups get the opportunity to pitch directly to our pool of seasoned angel investors who have successfully built tech companies in Pune."
         }
       ]
@@ -45,12 +45,12 @@ const FAQ: React.FC = () => {
       icon: <Info size={20} />,
       questions: [
         {
-          q: "Where is the TEAP office located?",
+          q: "Where is the Artha office located?",
           a: "Our administrative hub is located in Viman Nagar, Pune. However, we operate as a 'city-wide campus,' holding events across various tech parks and venues in Baner, Hinjewadi, and Magarpatta."
         },
         {
-          q: "Is TEAP affiliated with any government body?",
-          a: "TEAP is an independent non-profit association. However, we actively collaborate with the Maharashtra State Innovation Society and central bodies to provide policy feedback and secure benefits for our members."
+          q: "Is Artha affiliated with any government body?",
+          a: "Artha is an independent non-profit association. However, we actively collaborate with the Maharashtra State Innovation Society and central bodies to provide policy feedback and secure benefits for our members."
         }
       ]
     }

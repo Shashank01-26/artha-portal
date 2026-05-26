@@ -52,7 +52,7 @@ const About: React.FC = () => {
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                  <p className="text-white font-medium">The first TEAP gathering, 2015</p>
+                  <p className="text-white font-medium">The first Artha gathering, 2015</p>
                 </div>
               </div>
             </div>
@@ -67,7 +67,7 @@ const About: React.FC = () => {
                   In 2015, Pune had talent, it had deep engineering roots from the automotive era, but it lacked a cohesive startup community. Founders were building in silos.
                 </p>
                 <p>
-                  TEAP was born to break those silos. We started by organizing weekly knowledge-sharing sessions. Today, we represent over 500 companies, ranging from bootstrapped SaaS tools to Series-C funded unicorns. We actively work with government bodies to shape policy and with universities to upgrade curriculum.
+                  Artha was born to break those silos. We started by organizing weekly knowledge-sharing sessions. Today, we represent over 500 companies, ranging from bootstrapped SaaS tools to Series-C funded unicorns. We actively work with government bodies to shape policy and with universities to upgrade curriculum.
                 </p>
                 <div className="pt-4">
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-primary rounded-lg font-bold">

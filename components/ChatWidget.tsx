@@ -5,7 +5,7 @@ import { generateChatResponse } from '../services/geminiService';
 const ChatWidget: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; text: string }[]>([
-    { role: 'assistant', text: "Hello! I'm the TEAP AI Assistant. How can I help you today?" }
+    { role: 'assistant', text: "Hello! I'm the Artha AI Assistant. How can I help you today?" }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -45,7 +45,7 @@ const ChatWidget: React.FC = () => {
           <div className="bg-primary p-4 flex justify-between items-center text-white">
             <div className="flex items-center gap-2">
               <Bot size={20} />
-              <span className="font-semibold">TEAP Assistant</span>
+              <span className="font-semibold">Artha Assistant</span>
             </div>
             <button onClick={() => setIsOpen(false)} className="hover:text-gray-200">
               <X size={20} />
@@ -89,7 +89,7 @@ const ChatWidget: React.FC = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyPress}
-                placeholder="Ask about TEAP..."
+                placeholder="Ask about Artha..."
                 className="flex-1 bg-transparent focus:outline-none text-sm"
               />
               <button 

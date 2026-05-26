@@ -94,7 +94,7 @@ const CodeOfConduct: React.FC = () => {
                 Reporting Guidelines
               </h2>
               <p className="mb-6">
-                If you are subject to or witness unacceptable behavior, or have any other concerns, please notify a TEAP organizer as soon as possible.
+                If you are subject to or witness unacceptable behavior, or have any other concerns, please notify a Artha organizer as soon as possible.
               </p>
               <div className="bg-slate-900 text-white p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-6">
                 <div className="flex items-center gap-4">
@@ -103,7 +103,7 @@ const CodeOfConduct: React.FC = () => {
                   </div>
                   <div>
                     <p className="font-bold">Reporting Email</p>
-                    <p className="text-slate-400 text-sm">conduct@teap.org</p>
+                    <p className="text-slate-400 text-sm">conduct@artha.co</p>
                   </div>
                 </div>
                 <Link to="/contact" className="px-6 py-2 bg-primary text-white rounded-lg font-bold hover:bg-primary-dark transition-colors text-sm">

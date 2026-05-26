@@ -110,7 +110,7 @@ const Login: React.FC = () => {
         </div>
         
         <p className="mt-8 text-center text-xs text-slate-400 leading-relaxed">
-          By continuing, you agree to TEAP's{' '}
+          By continuing, you agree to Artha's{' '}
           <Link to="/terms" className="underline hover:text-slate-600">Terms of Service</Link>{' '}
           and{' '}
           <button className="underline hover:text-slate-600">Privacy Policy</button>.

@@ -262,9 +262,9 @@ const CompanyDetail: React.FC = () => {
             <div className="bg-gradient-to-br from-primary to-primary-dark rounded-[2.5rem] p-8 text-white shadow-2xl shadow-primary/30 relative overflow-hidden">
               <div className="relative z-10">
                 <ShieldCheck className="mb-6 opacity-80" size={48} />
-                <h3 className="text-xl font-bold mb-4">TEAP Verified</h3>
+                <h3 className="text-xl font-bold mb-4">Artha Verified</h3>
                 <p className="text-sm text-blue-100/80 leading-relaxed mb-8">
-                  This brand identity has been verified by the Tech Entrepreneurs Association of Pune board as an authentic and contributing member of our ecosystem.
+                  This brand identity has been verified by the Artha Collective board as an authentic and contributing member of our ecosystem.
                 </p>
                 <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest backdrop-blur-md">
                   Elite Status
@@ -275,7 +275,7 @@ const CompanyDetail: React.FC = () => {
             <div className="bg-white rounded-[2.5rem] p-8 border border-slate-200 text-center">
               <Rocket className="mx-auto text-primary mb-4" size={32} />
               <h4 className="font-bold text-slate-900 mb-2">Want a similar page?</h4>
-              <p className="text-xs text-slate-500 mb-6">Join TEAP to showcase your brand to Pune's tech giants.</p>
+              <p className="text-xs text-slate-500 mb-6">Join Artha to showcase your brand to Pune's tech giants.</p>
               <Link to="/join" className="text-xs font-black text-primary uppercase tracking-widest hover:underline">Apply Today</Link>
             </div>
           </div>

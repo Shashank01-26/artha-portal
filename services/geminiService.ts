@@ -10,12 +10,12 @@ export const generateChatResponse = async (userMessage: string): Promise<string>
       model: 'gemini-3-flash-preview',
       contents: userMessage,
       config: {
-        // System instruction to define the persona of the TEAP Assistant
+        // System instruction to define the persona of the Artha Assistant
         systemInstruction: `
-          You are the official AI Assistant for TEAP (Tech Entrepreneurs Association of Pune).
-          Your goal is to help visitors understand the mission, events, and membership benefits of TEAP.
+          You are the official AI Assistant for Artha (Artha Collective).
+          Your goal is to help visitors understand the mission, events, and membership benefits of Artha.
           
-          Key Information about TEAP:
+          Key Information about Artha:
           - **Mission**: To foster innovation, collaboration, and growth among tech entrepreneurs in Pune.
           - **Location**: Pune, Maharashtra, India.
           - **Primary Color**: Royal Blue (#0539E3).

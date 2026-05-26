@@ -85,7 +85,7 @@ const JoinUs: React.FC = () => {
           <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle2 size={48} />
           </div>
-          <h1 className="text-3xl font-bold text-slate-900 mb-4">Welcome to TEAP!</h1>
+          <h1 className="text-3xl font-bold text-slate-900 mb-4">Welcome to Artha!</h1>
           <p className="text-slate-600 mb-2">Your onboarding application has been submitted.</p>
           <p className="text-sm font-medium text-primary">Redirecting to your dashboard...</p>
         </div>
@@ -108,7 +108,7 @@ const JoinUs: React.FC = () => {
             <h2 className="text-white text-2xl font-black flex items-center gap-3">
                Application Portal
             </h2>
-            <p className="text-blue-100 text-sm mt-1 font-medium opacity-80">Please provide accurate details for the TEAP verification process.</p>
+            <p className="text-blue-100 text-sm mt-1 font-medium opacity-80">Please provide accurate details for the Artha verification process.</p>
           </div>
           
           <form className="p-8 md:p-12 space-y-16" onSubmit={handleSubmit}>
@@ -406,7 +406,7 @@ const JoinUs: React.FC = () => {
               </button>
               <div className="mt-8 text-center space-y-2">
                 <p className="text-slate-400 text-xs font-medium">
-                  By submitting, you agree to TEAP's <Link to="/code-of-conduct" className="text-primary font-bold hover:underline">Code of Conduct</Link> and <Link to="/privacy" className="text-primary font-bold hover:underline">Privacy Policy</Link>.
+                  By submitting, you agree to Artha's <Link to="/code-of-conduct" className="text-primary font-bold hover:underline">Code of Conduct</Link> and <Link to="/privacy" className="text-primary font-bold hover:underline">Privacy Policy</Link>.
                 </p>
                 <p className="text-slate-300 text-[10px] font-bold uppercase tracking-tighter">Verification usually takes 3-5 business days.</p>
               </div>

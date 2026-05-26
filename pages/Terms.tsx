@@ -13,7 +13,7 @@ const Terms: React.FC = () => {
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Terms & Conditions</h1>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Please read these terms carefully before becoming a member of TEAP.
+            Please read these terms carefully before becoming a member of Artha.
             <br />
             <span className="text-sm text-slate-400">Last Updated: October 2024</span>
           </p>
@@ -30,10 +30,10 @@ const Terms: React.FC = () => {
                 1. Membership Agreement
               </h2>
               <p className="mb-4">
-                By applying for membership with the Tech Entrepreneurs Association of Pune (TEAP), you agree to abide by the organization's bylaws, code of conduct, and ethical standards. Membership is subject to approval by the screening committee.
+                By applying for membership with the Artha Collective (Artha), you agree to abide by the organization's bylaws, code of conduct, and ethical standards. Membership is subject to approval by the screening committee.
               </p>
               <p>
-                TEAP reserves the right to revoke membership if a member is found engaging in activities detrimental to the community's interest or reputation.
+                Artha reserves the right to revoke membership if a member is found engaging in activities detrimental to the community's interest or reputation.
               </p>
             </div>
 
@@ -64,7 +64,7 @@ const Terms: React.FC = () => {
                 3. Event Participation
               </h2>
               <p>
-                Registration for events is non-transferable unless explicitly stated otherwise. Refunds for paid events are subject to the specific cancellation policy of that event. TEAP may record events for promotional purposes; by attending, you consent to being photographed or filmed.
+                Registration for events is non-transferable unless explicitly stated otherwise. Refunds for paid events are subject to the specific cancellation policy of that event. Artha may record events for promotional purposes; by attending, you consent to being photographed or filmed.
               </p>
             </div>
 
@@ -77,7 +77,7 @@ const Terms: React.FC = () => {
                 4. Liability & Disclaimer
               </h2>
               <p className="mb-4">
-                TEAP acts as a facilitator for networking and knowledge sharing. We do not guarantee funding, business partnerships, or specific business outcomes.
+                Artha acts as a facilitator for networking and knowledge sharing. We do not guarantee funding, business partnerships, or specific business outcomes.
               </p>
               <p>
                 The association is not liable for any direct, indirect, incidental, or consequential damages arising from your use of our resources, website, or participation in our events.

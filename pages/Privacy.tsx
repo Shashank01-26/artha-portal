@@ -49,7 +49,7 @@ const Privacy: React.FC = () => {
                 2. How We Use Your Data
               </h2>
               <p className="mb-4">
-                The Tech Entrepreneurs Association of Pune uses collected data for the following purposes:
+                The Artha Collective uses collected data for the following purposes:
               </p>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <li className="bg-slate-50 p-4 rounded-xl flex items-start gap-3">
@@ -99,7 +99,7 @@ const Privacy: React.FC = () => {
                 4. Your Rights
               </h2>
               <p className="mb-4">
-                As a member of the TEAP community, you have the following rights regarding your data:
+                As a member of the Artha community, you have the following rights regarding your data:
               </p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>The right to access and update your profile information at any time.</li>
@@ -117,7 +117,7 @@ const Privacy: React.FC = () => {
                 5. Third-Party Sharing
               </h2>
               <p>
-                TEAP does not sell, trade, or otherwise transfer your personally identifiable information to outside parties. This does not include trusted partners who assist us in operating our website or conducting our association business, so long as those parties agree to keep this information confidential.
+                Artha does not sell, trade, or otherwise transfer your personally identifiable information to outside parties. This does not include trusted partners who assist us in operating our website or conducting our association business, so long as those parties agree to keep this information confidential.
               </p>
             </div>
 
@@ -126,7 +126,7 @@ const Privacy: React.FC = () => {
           <div className="bg-slate-900 p-10 border-t border-slate-800 text-center text-white">
              <h3 className="text-xl font-bold mb-4">Privacy Questions?</h3>
              <p className="text-slate-400 text-sm mb-6">Our Data Protection Officer is available for any clarifications.</p>
-             <a href="mailto:privacy@teap.org" className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary-dark transition-colors">
+             <a href="mailto:privacy@artha.co" className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary-dark transition-colors">
                 Email DPO
              </a>
           </div>

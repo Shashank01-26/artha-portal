@@ -20,7 +20,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    const savedUser = localStorage.getItem('teap_user');
+    const savedUser = localStorage.getItem('artha_user');
     if (savedUser) {
       setUser(JSON.parse(savedUser));
     }
@@ -34,12 +34,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${name}`
     };
     setUser(newUser);
-    localStorage.setItem('teap_user', JSON.stringify(newUser));
+    localStorage.setItem('artha_user', JSON.stringify(newUser));
   };
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('teap_user');
+    localStorage.removeItem('artha_user');
   };
 
   return (
